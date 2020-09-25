@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <script src="./js/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="./css/basic.css">
+
+
+
+    <title>HCI 연구실 디렉토리</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            overflow-x: hidden;
+
+            font-family: 'NanumSquare', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            color: #454f5d;
+        }
+
+
+        #BIMG img {
+            position: absolute;
+            z-index: -100px;
+            display: block;
+            width: 68%;
+            top: 53%;
+            right: -45%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        #Bcontents {
+            position: absolute;
+            display: block;
+            margin: 0;
+            top: 53%;
+            transform: translateY(-50%);
+            left: 12%;
+        }
+
+        #Bcontents #text1 .p1 {
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 110%;
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #0083c7;
+            display: inline-block;
+
+        }
+
+
+
+        #Bcontents #text1 .p2 {
+            display: inline-block;
+            font-weight: 400;
+            font-size: 50px;
+            margin: 0;
+
+        }
+
+        #Bcontents #text1 .p3 {
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 110%;
+            margin-top: 0;
+            margin-bottom: 16px;
+
+        }
+
+        #Bcontents #text2 {
+            margin-top: 10%;
+
+        }
+
+        #Bcontents #text2 span {
+            white-space: nowrap;
+            text-align: left;
+            font-size: 18px;
+            line-height: 140%;
+        }
+
+
+
+        #tag_search_go_btn button,
+        button::after {
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        #tag_search_go_btn button {
+            background: none;
+            border: 1.5px solid #0083c7;
+            border-radius: 4px;
+            color: #0083c7;
+            display: block;
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            padding: .5em 2.4em;
+        }
+
+
+        #tag_search_go_btn button:hover {
+            color: #fff;
+            background-color: #0083c7;
+            border-color: #0083c7;
+            font-weight: 700;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .2);
+        }
+
+        #tag_search_go_btn button:focus {
+            outline: none;
+        }
+
+
+        /*슬라이드*/
+        .slideLeft {
+            -webkit-animation-name: slideLeft;
+            animation-name: slideLeft;
+        }
+
+        @-webkit-keyframes slideLeft {
+            0% {
+                transform-origin: 0 0;
+                transform: translate(-20%, -50%);
+                opacity: 0;
+            }
+
+            100% {
+                transform-origin: 0 0;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+
+
+        @keyframes slideLeft {
+            0% {
+                transform-origin: 0 0;
+                transform: translate(-20%, -50%);
+                opacity: 0;
+            }
+
+            100% {
+                transform-origin: 0 0;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .slideDownReturn {
+            -webkit-animation-name: slideDownReturn;
+            animation-name: slideDownReturn;
+        }
+
+        @-webkit-keyframes slideDownReturn {
+            0% {
+                transform-origin: 0 0;
+                opacity: 0;
+                transform: translateY(-30%);
+            }
+
+            100% {
+                transform-origin: 0 0;
+                opacity: 1;
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes slideDownReturn {
+            0% {
+                transform-origin: 0 0;
+                opacity: 0;
+                transform: translateY(-30%);
+            }
+
+            100% {
+                transform-origin: 0 0;
+                opacity: 1;
+                transform: translateY(-50%);
+            }
+        }
+
+        .magictime {
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        @media (print),
+        (prefers-reduced-motion) {
+            .magictime {
+                -webkit-animation: unset !important;
+                animation: unset !important;
+                transition: none !important;
+            }
+        }
+
+        @media screen and (max-width: 1380px) {
+
+            body {
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+                overflow-x: hidden;
+
+                font-family: 'NanumSquare', sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                color: #454f5d;
+            }
+
+
+            #BIMG img {
+                position: absolute;
+                z-index: -100px;
+                display: block;
+                width: 68%;
+                top: 53%;
+                right: -50%;
+                transform: translate(-50%, -50%);
+            }
+
+
+            #Bcontents {
+                position: absolute;
+                display: block;
+                margin: 0;
+                top: 53%;
+                transform: translateY(-50%);
+                left: 8%;
+            }
+
+            #Bcontents #text1 .p1 {
+                font-weight: 400;
+                font-size: 50px;
+                line-height: 110%;
+                margin-top: 0;
+                margin-bottom: 16px;
+                color: #0083c7;
+                display: inline-block;
+
+            }
+
+
+
+            #Bcontents #text1 .p2 {
+                display: inline-block;
+                font-weight: 400;
+                font-size: 50px;
+                margin: 0;
+
+            }
+
+            #Bcontents #text1 .p3 {
+                font-weight: 400;
+                font-size: 50px;
+                line-height: 110%;
+                margin-top: 0;
+                margin-bottom: 16px;
+
+            }
+
+            #Bcontents #text2 {
+                margin-top: 10%;
+
+            }
+
+            #Bcontents #text2 span {
+                white-space: nowrap;
+                text-align: left;
+                font-size: 18px;
+                line-height: 140%;
+            }
+
+
+
+            #tag_search_go_btn button,
+            button::after {
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+
+            #tag_search_go_btn button {
+                background: none;
+                border: 1.5px solid #0083c7;
+                border-radius: 4px;
+                color: #0083c7;
+                display: block;
+                font-size: 18px;
+                font-weight: 400;
+                margin: 0;
+                padding: .5em 2.4em;
+            }
+
+
+            #tag_search_go_btn button:hover {
+                color: #fff;
+                background-color: #0083c7;
+                border-color: #0083c7;
+                font-weight: 700;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .2);
+            }
+
+            #tag_search_go_btn button:focus {
+                outline: none;
+            }
+
+
+            /*슬라이드*/
+            .slideLeft {
+                -webkit-animation-name: slideLeft;
+                animation-name: slideLeft;
+            }
+
+            @-webkit-keyframes slideLeft {
+                0% {
+                    transform-origin: 0 0;
+                    transform: translate(-20%, -50%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform-origin: 0 0;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+
+
+
+            @keyframes slideLeft {
+                0% {
+                    transform-origin: 0 0;
+                    transform: translate(-20%, -50%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform-origin: 0 0;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+
+            .slideDownReturn {
+                -webkit-animation-name: slideDownReturn;
+                animation-name: slideDownReturn;
+            }
+
+            @-webkit-keyframes slideDownReturn {
+                0% {
+                    transform-origin: 0 0;
+                    opacity: 0;
+                    transform: translateY(-30%);
+                }
+
+                100% {
+                    transform-origin: 0 0;
+                    opacity: 1;
+                    transform: translateY(-50%);
+                }
+            }
+
+            @keyframes slideDownReturn {
+                0% {
+                    transform-origin: 0 0;
+                    opacity: 0;
+                    transform: translateY(-30%);
+                }
+
+                100% {
+                    transform-origin: 0 0;
+                    opacity: 1;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .magictime {
+                -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+            }
+
+            @media (print),
+            (prefers-reduced-motion) {
+                .magictime {
+                    -webkit-animation: unset !important;
+                    animation: unset !important;
+                    transition: none !important;
+                }
+            }
+        }
+
+        @media screen and (max-width: 780px) {
+             body {
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+                overflow-x: hidden;
+
+                font-family: 'NanumSquare', sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                color: #454f5d;
+            }
+            #Bcontents #text1 .p1 {
+                font-weight: 400;
+                font-size: 32px;
+                text-align: center;
+                color: #0083c7;
+                display: inline-block;
+
+            }
+
+            #Bcontents #text1 .p2 {
+                display: inline-block;
+                font-weight: 400;
+                font-size: 32px;
+                margin: 0;
+
+            }
+
+            #Bcontents #text1 .p3 {
+                font-weight: 400;
+                font-size: 32px;
+                margin-top: 0;
+                margin-bottom: 16px;
+
+            }
+
+            #Bcontents #text2 {
+                margin-top: 5%;
+
+            }
+
+            #Bcontents #text2 span {
+                white-space: nowrap;
+                text-align: left;
+                font-size: 18px;
+                line-height: 140%;
+            }
+
+
+            #tag_search_go_btn button,
+            button::after {
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+
+            #tag_search_go_btn button {
+                background: none;
+                border: 1.5px solid #0083c7;
+                border-radius: 4px;
+                color: #0083c7;
+                display: block;
+                font-size: 18px;
+                font-weight: 400;
+                margin: 0;
+                padding: .5em 2.4em;
+            }
+
+
+            #tag_search_go_btn button:hover {
+                color: #fff;
+                background-color: #0083c7;
+                border-color: #0083c7;
+                font-weight: 700;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .2);
+            }
+
+            #tag_search_go_btn button:focus {
+                outline: none;
+            }
+
+            #BIMG {
+                display: none;
+            }
+
+        }
+
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('#BBtn').click(function() {
+                location.href = './html/lab_list.html';
+            });
+
+
+
+            $(".bimg").addClass("slideLeft");
+            $(".Bcontents").addClass("slideDownReturn");
+
+            $(".slideLeft").addClass("magictime");
+            $(".slideDownReturn").addClass("magictime");
+
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div id="logo">HCI 연구실 디렉토리</div>
+    </div>
+    <div id="Halign">
+        <div id="BIMG">
+            <img class="bimg" style="overflow: hidden;" src="beginIMG.jpg">
+        </div>
+
+        <div id="Bcontents" class="Bcontents">
+            <div id="text1">
+                <p class="p1">관심 연구 분야</p>
+                <p class="p2">로</p>
+                <p class="p3">국내 HCI 연구실을</p>
+                <p class="p3">탐색해보세요!</p>
+            </div>
+            <div id="text2" style="margin-top: 6%">
+                <span>국내 55개 대학교에 소속된<br>180개의 HCI 연구실 정보를 제공합니다.</span>
+            </div>
+            <div id="tag_search_go_btn" style="margin-top: 10%">
+                <button id="BBtn">시작하기</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
