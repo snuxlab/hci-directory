@@ -18,10 +18,8 @@ function init() {
 
 function showInfo(data, tabletop) {
     // alert('Successfully processed!')
-    listLenth = data.length;
-    labs = data[0].LabTitle;
-
-    return listLenth, labs;
+    // console.log(data);
+    let labData = data;
+    return labData;
 }
-
 window.addEventListener('DOMContentLoaded', init)

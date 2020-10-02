@@ -24,19 +24,14 @@
     <!--검색창-->
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-
-    <script src="../js/labDirectory.js"></script>
-    <script src="../js/dropInCards.js"></script>
-    <script src="../js/listLenth.js"></script>
-
     <!-- google sheets integration -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     <!-- <script src='../js/sheets.js'></script> -->
-    <script type='text/javascript'>
+    <!-- <script type='text/javascript'>
         var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit#gid=0';
 
-        var listLenth;
-        var labs;
+        // var listLength;
+        // var labs;
 
         function init() {
             Tabletop.init({
@@ -48,21 +43,30 @@
 
         function showInfo(data, tabletop) {
             // alert('Successfully processed!')
+            // console.log(data);
+            // listLength = data.length;
+            // labs = data[0].LabTitle;
             console.log(data);
             console.log(data.length);
-            listLenth = data.length;
-            labs = data[0].LabTitle;
-            console.log(labs);
+
+            return data
         }
 
         window.addEventListener('DOMContentLoaded', init)
-    </script>
+    </script> -->
+    <!-- <script type='text/javascript'>
+        var data = showInfo();
+        console.log(data)
+    </script> -->
+
+    <script src="../js/labDirectory.js"></script>
+    <script src="../js/dropInCardsGS.js"></script>
+    <!-- <script src="../js/listLenth.js"></script> -->
 
     <script>
         
         
         $(document).ready(function() {
-            
             
             tagSearchList();
             $('.navbar-item').click(function() {
