@@ -128,9 +128,6 @@ function tagSearchList() {
 
 /*2. 검색어로 검색한 경우*/
 function charSearchList() {
-    setTimeout(function () {
-        console.log('.');
-    }, 2200);
     var tagList = '';
     //사용자가 검색한 검색어가 대학교명인지 교수명인지 연구실명인지 구분.
     if (filter_kind == 0) {
