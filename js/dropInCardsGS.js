@@ -59,7 +59,6 @@ var excepUniv = ''; // 예외처리된 대학교명을 저장하는 변수
 
 /*1. 태그로 검색한 경우*/
 function tagSearchList() {
-    setTimeout(function () {
         // console.log(listLength);
 
         //태그로 검색할 경우 검색어로 검색어를 무력화시키기 위해 초기화 진행
@@ -118,10 +117,6 @@ function tagSearchList() {
         } else {
             $('#howManyLabs').html('검색 결과 &#40;' + CountLabs + '&#41;');
         }
-    
-    
-    }, 2200);
-    
 }
 /*1. 태그로 검색한 경우 끝*/
 
