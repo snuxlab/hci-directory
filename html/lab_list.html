@@ -35,8 +35,14 @@
         
         
         $(document).ready(function() {
-            
-            setTimeout(function () {tagSearchList();}, 2000);
+            var checkExist = setInterval(function () {
+                if (labdata.length) {
+                    // console.log("Exists!");
+                    clearInterval(checkExist);
+                    tagSearchList();
+                }
+            }, 100);
+
             $('.navbar-item').click(function() {
                 tagSearchList();
             });
