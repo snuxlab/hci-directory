@@ -34,11 +34,11 @@ function showInfo(data, tabletop) {
     labdata = data;
 }
 
-setTimeout(function () {
-    listLength = labdata.length;
-    // console.log(labdata);
-    // console.log(listLength);
-}, 2200);
+// setTimeout(function () {
+//     listLength = labdata.length;
+//     // console.log(labdata);
+//     // console.log(listLength);
+// }, 2200);
 
 
 var Stags = ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']; // 사용자가 선택한 태그의 명칭을 저장하는 변수
@@ -59,64 +59,64 @@ var excepUniv = ''; // 예외처리된 대학교명을 저장하는 변수
 
 /*1. 태그로 검색한 경우*/
 function tagSearchList() {
-        // console.log(listLength);
+    // console.log(listLength);
+    listLength = labdata.length;
+    //태그로 검색할 경우 검색어로 검색어를 무력화시키기 위해 초기화 진행
+    CharLab = '';
+    CharProf = '';
+    CharUniv = '';
+    $('#myInput').val('');
 
-        //태그로 검색할 경우 검색어로 검색어를 무력화시키기 위해 초기화 진행
-        CharLab = '';
-        CharProf = '';
-        CharUniv = '';
-        $('#myInput').val('');
+    //검색 후 화면에 표시할 연구실의 html값을 저장하는 변수생성
+    var tagList = '';
 
-        //검색 후 화면에 표시할 연구실의 html값을 저장하는 변수생성
-        var tagList = '';
-
-        //사용자가 선택한 키워드를 Stags배열에 저장 (1일 경우 선택, 0일 경우 선택x)
-        for (var i = 0; i < isAct_tag.length; i++) {
-            if (isAct_tag[i] == 1) {
-                Stags[i] = '#' + tag_text[i];
-            } else if (isAct_tag[i] == 0) {
-                Stags[i] = '#';
-            }
+    //사용자가 선택한 키워드를 Stags배열에 저장 (1일 경우 선택, 0일 경우 선택x)
+    for (var i = 0; i < isAct_tag.length; i++) {
+        if (isAct_tag[i] == 1) {
+            Stags[i] = '#' + tag_text[i];
+        } else if (isAct_tag[i] == 0) {
+            Stags[i] = '#';
         }
+    }
 
-        //검색된 연구실 갯수를 세기 위한 변수 초기화
+    //검색된 연구실 갯수를 세기 위한 변수 초기화
+    CountLabs = 0;
+
+    // 연구실 디렉토리를 확인하며 Keyword에 tag를 포함하는 객체 불러옴
+    for (var j = 0; j < listLength; j++) {
+        // var checkNumJ = eval('list' + j);
+        var keyword = labdata[j].Keyword_1;
+        // console.log(keyword);
+        // console.log(labdata[j].Prof);
+        // console.log(typeof(keyword));
+        // console.log(typeof(labdata[j].Prof));
+
+        if (keyword.indexOf(Stags[0]) >= 0 && keyword.indexOf(Stags[1]) >= 0 && keyword.indexOf(Stags[2]) >= 0 && keyword.indexOf(Stags[3]) >= 0 && keyword.indexOf(Stags[4]) >= 0 && keyword.indexOf(Stags[5]) >= 0 && keyword.indexOf(Stags[6]) >= 0 && keyword.indexOf(Stags[7]) >= 0 && keyword.indexOf(Stags[8]) >= 0 && keyword.indexOf(Stags[9]) >= 0 && keyword.indexOf(Stags[10]) >= 0 && keyword.indexOf(Stags[11]) >= 0 && keyword.indexOf(Stags[12]) >= 0 && keyword.indexOf(Stags[13]) >= 0 && keyword.indexOf(Stags[14]) >= 0 && keyword.indexOf(Stags[15]) >= 0 && keyword.indexOf(Stags[16]) >= 0 && keyword.indexOf(Stags[17]) >= 0 && keyword.indexOf(Stags[18]) >= 0 && keyword.indexOf(Stags[19]) >= 0 && keyword.indexOf(Stags[20]) >= 0 && keyword.indexOf(Stags[21]) >= 0 && keyword.indexOf(Stags[22]) >= 0 && keyword.indexOf(Stags[23]) >= 0 && keyword.indexOf(Stags[24]) >= 0 && keyword.indexOf(Stags[25]) >= 0) {
+            tagList += '<a onclick="I(' + labdata[j].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[j].LabTitle + '</div><div class="card_prof">' + labdata[j].Prof + ' 교수&ensp;|&ensp;' + labdata[j].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[j].Keyword_1 + '</div><br></div></div></article></a>';
+            CountLabs++;
+        }
+    }
+
+    // 아무것도 검색하지 않았을 때 모든 연구실 등장
+    if (Stags[0] === '#' && Stags[1] === '#' && Stags[2] === '#' && Stags[3] === '#' && Stags[4] === '#' && Stags[5] === '#' && Stags[6] === '#' && Stags[7] === '#' && Stags[8] === '#' && Stags[9] === '#' && Stags[10] === '#' && Stags[11] === '#' && Stags[12] === '#' && Stags[13] === '#' && Stags[14] === '#' && Stags[15] === '#' && Stags[16] === '#' && Stags[17] === '#' && Stags[18] === '#' && Stags[19] === '#' && Stags[20] === '#' && Stags[21] === '#' && Stags[22] === '#' && Stags[23] === '#' && Stags[24] === '#' && Stags[25] === '#' && CharUniv === '' && CharProf === '' && CharLab === '') {
         CountLabs = 0;
+        for (var i = 0; i < listLength; i++) {
+            // var checkNum = eval('list' + i);
 
-        // 연구실 디렉토리를 확인하며 Keyword에 tag를 포함하는 객체 불러옴
-        for (var j = 0; j < listLength; j++) {
-            // var checkNumJ = eval('list' + j);
-            var keyword = labdata[j].Keyword_1;
-            // console.log(keyword);
-            // console.log(labdata[j].Prof);
-            // console.log(typeof(keyword));
-            // console.log(typeof(labdata[j].Prof));
-
-            if (keyword.indexOf(Stags[0]) >= 0 && keyword.indexOf(Stags[1]) >= 0 && keyword.indexOf(Stags[2]) >= 0 && keyword.indexOf(Stags[3]) >= 0 && keyword.indexOf(Stags[4]) >= 0 && keyword.indexOf(Stags[5]) >= 0 && keyword.indexOf(Stags[6]) >= 0 && keyword.indexOf(Stags[7]) >= 0 && keyword.indexOf(Stags[8]) >= 0 && keyword.indexOf(Stags[9]) >= 0 && keyword.indexOf(Stags[10]) >= 0 && keyword.indexOf(Stags[11]) >= 0 && keyword.indexOf(Stags[12]) >= 0 && keyword.indexOf(Stags[13]) >= 0 && keyword.indexOf(Stags[14]) >= 0 && keyword.indexOf(Stags[15]) >= 0 && keyword.indexOf(Stags[16]) >= 0 && keyword.indexOf(Stags[17]) >= 0 && keyword.indexOf(Stags[18]) >= 0 && keyword.indexOf(Stags[19]) >= 0 && keyword.indexOf(Stags[20]) >= 0 && keyword.indexOf(Stags[21]) >= 0 && keyword.indexOf(Stags[22]) >= 0 && keyword.indexOf(Stags[23]) >= 0 && keyword.indexOf(Stags[24]) >= 0 && keyword.indexOf(Stags[25]) >= 0) {
-                tagList += '<a onclick="I(' + labdata[j].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[j].LabTitle + '</div><div class="card_prof">' + labdata[j].Prof + ' 교수&ensp;|&ensp;' + labdata[j].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[j].Keyword_1 + '</div><br></div></div></article></a>';
-                CountLabs++;
-            }
+            tagList += '<a onclick="I(' + labdata[i].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[i].LabTitle + '</div><div class="card_prof">' + labdata[i].Prof + ' 교수&ensp;|&ensp;' + labdata[i].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[i].Keyword_1 + '</div><br></div></div></article></a>';
+            CountLabs++;
         }
+    }
 
-        // 아무것도 검색하지 않았을 때 모든 연구실 등장
-        if (Stags[0] === '#' && Stags[1] === '#' && Stags[2] === '#' && Stags[3] === '#' && Stags[4] === '#' && Stags[5] === '#' && Stags[6] === '#' && Stags[7] === '#' && Stags[8] === '#' && Stags[9] === '#' && Stags[10] === '#' && Stags[11] === '#' && Stags[12] === '#' && Stags[13] === '#' && Stags[14] === '#' && Stags[15] === '#' && Stags[16] === '#' && Stags[17] === '#' && Stags[18] === '#' && Stags[19] === '#' && Stags[20] === '#' && Stags[21] === '#' && Stags[22] === '#' && Stags[23] === '#' && Stags[24] === '#' && Stags[25] === '#' && CharUniv === '' && CharProf === '' && CharLab === '') {
-            CountLabs = 0;
-            for (var i = 0; i < listLength; i++) {
-                // var checkNum = eval('list' + i);
+    //tagList변수에 저장한 html코드를 뿌려서 동적목록구성
+    $('#DropInListArea').html(tagList);
 
-                tagList += '<a onclick="I(' + labdata[i].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[i].LabTitle + '</div><div class="card_prof">' + labdata[i].Prof + ' 교수&ensp;|&ensp;' + labdata[i].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[i].Keyword_1 + '</div><br></div></div></article></a>';
-                CountLabs++;
-            }
-        }
-
-        //tagList변수에 저장한 html코드를 뿌려서 동적목록구성
-        $('#DropInListArea').html(tagList);
-
-        //검색한 연구실 갯수 뿌리기
-        if (CountLabs == 0) {
-            $('#howManyLabs').html('검색 결과가 없습니다.');
-        } else {
-            $('#howManyLabs').html('검색 결과 &#40;' + CountLabs + '&#41;');
-        }
+    //검색한 연구실 갯수 뿌리기
+    if (CountLabs == 0) {
+        $('#howManyLabs').html('검색 결과가 없습니다.');
+    } else {
+        $('#howManyLabs').html('검색 결과 &#40;' + CountLabs + '&#41;');
+    }
 }
 /*1. 태그로 검색한 경우 끝*/
 
