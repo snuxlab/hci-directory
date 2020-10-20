@@ -151,7 +151,6 @@
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -285,7 +284,6 @@
     display: none;
     max-width: 276px;
     padding: 1px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -594,7 +592,6 @@
 .carousel-control .icon-prev {
     width: 20px;
     height: 20px;
-    font-family: serif;
     line-height: 1
 }
 

@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="./css/basic.css">
 
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
 
 
-    <title>HCI 연구실 디렉토리 - ver2 구글시트 DB화</title>
+
+    <title>HCI 연구실 디렉토리</title>
     <style>
         body {
             padding: 0px;
             margin: 0px;
             width: 100%;
             overflow-x: hidden;
-
-            font-family: 'NanumSquare', sans-serif;
             font-weight: 400;
             font-size: 15px;
             color: #454f5d;
@@ -217,8 +219,6 @@
                 margin: 0px;
                 width: 100%;
                 overflow-x: hidden;
-
-                font-family: 'NanumSquare', sans-serif;
                 font-weight: 400;
                 font-size: 15px;
                 color: #454f5d;
@@ -416,8 +416,6 @@
                 margin: 0px;
                 width: 100%;
                 overflow-x: hidden;
-
-                font-family: 'NanumSquare', sans-serif;
                 font-weight: 400;
                 font-size: 15px;
                 color: #454f5d;
@@ -506,15 +504,11 @@
                 location.href = './html/lab_list.html';
             });
 
-
-
             $(".bimg").addClass("slideLeft");
             $(".Bcontents").addClass("slideDownReturn");
 
             $(".slideLeft").addClass("magictime");
             $(".slideDownReturn").addClass("magictime");
-
-
 
         });
 
@@ -522,14 +516,10 @@
 </head>
 
 <body>
-    <div class="header" id="header">
-        <div id="logo">HCI 연구실 디렉토리</div>
-    </div>
     <div id="Halign">
         <div id="BIMG">
             <img class="bimg" style="overflow: hidden;" src="beginIMG.jpg">
         </div>
-
         <div id="Bcontents" class="Bcontents">
             <div id="text1">
                 <p class="p1">관심 연구 분야</p>
@@ -544,12 +534,7 @@
                 <button id="BBtn">시작하기</button>
             </div>
         </div>
-
     </div>
-
-
-
-
 </body>
 
 </html>
