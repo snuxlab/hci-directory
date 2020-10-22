@@ -11,4 +11,4 @@
 
 /css/fonts/*.otf
   Access-Control-Allow-Origin: *
-  Content-Type: application/font-otf
+  Content-Type: application/font-opentype
