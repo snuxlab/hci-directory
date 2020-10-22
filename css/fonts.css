@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-black-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-black-webfont.woff') format('woff');
+         url('../css/font/notosanskr-black-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Black.otf') format('embedded-opentype');
     font-weight: 900;
     font-style: normal;
 }
@@ -9,7 +10,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-bold-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-bold-webfont.woff') format('woff');
+         url('../css/font/notosanskr-bold-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Bold.otf') format('embedded-opentype');
     font-weight: 700;
     font-style: normal;
 }
@@ -17,7 +19,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-light-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-light-webfont.woff') format('woff');
+         url('../css/font/notosanskr-light-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Light.otf') format('embedded-opentype');
     font-weight: 300;
     font-style: normal;
 }
@@ -25,7 +28,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-medium-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-medium-webfont.woff') format('woff');
+         url('../css/font/notosanskr-medium-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Medium.otf') format('embedded-opentype');
     font-weight: 500;
     font-style: normal;
 }
@@ -33,7 +37,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-regular-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-regular-webfont.woff') format('woff');
+         url('../css/font/notosanskr-regular-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Regular.otf') format('embedded-opentype');
     font-weight: 400;
     font-style: normal;
 }
@@ -41,7 +46,8 @@
 @font-face {
     font-family: 'Noto Sans KR' sans-serif;
     src: url('../css/font/notosanskr-thin-webfont.woff2') format('woff2'),
-         url('../css/font/notosanskr-thin-webfont.woff') format('woff');
+         url('../css/font/notosanskr-thin-webfont.woff') format('woff'),
+         url('../css/font/NotoSansKR-Thin.otf') format('embedded-opentype');
     font-weight: 100;
     font-style: normal;
 }
