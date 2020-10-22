@@ -5,6 +5,6 @@
   Access-Control-Allow-Origin: *
   Content-Type: application/font-woff
 
-/css/fonts/*.ttf
+/css/fonts/*.otf
   Access-Control-Allow-Origin: *
   Content-Type: application/font-otf
