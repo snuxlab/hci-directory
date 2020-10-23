@@ -523,12 +523,13 @@ hr {
 
     #intro-copy {
         margin: 40px 10px; 
-        font-size: 1.1em; 
+        font-size: 1.2em; 
         text-align: center;
+        word-break: keep-all;
     }
 
     .card-title {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
 
     .aline-center {
