@@ -521,6 +521,17 @@ hr {
 
 @media only screen and (max-width: 770px) {
 
+    #intro-copy {
+        margin: 40px 0; 
+        font-size: 1.1em; 
+        text-align: center;
+    }
+
+    #intro-copy span {
+        color: #0083c7;
+        font-weight: 700;
+    }
+
     .aline-center {
         width: 96%;
         display: inline-block;
