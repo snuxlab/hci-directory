@@ -51,6 +51,7 @@ a svg:hover {
     margin: 40px 0; 
     font-size: 1.3em; 
     text-align: center;
+    word-break: keep-all;
 }
 
 #intro-copy span {
@@ -530,6 +531,12 @@ hr {
 
     .card-title {
         font-size: 1.2em;
+        padding-top: 0;
+    }
+
+    .td1 {
+        padding-right: 20px;
+        padding-top: 7px;
     }
 
     .aline-center {
