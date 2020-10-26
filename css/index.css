@@ -545,6 +545,7 @@ button::after {
 
     #teaminterface {
         max-width: 80%;
+        width: 80%;
     }
 
 }
