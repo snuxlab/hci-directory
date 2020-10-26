@@ -446,6 +446,11 @@ button::after {
         font-size: 15px;
         color: #454f5d;
     }
+
+    #Bcontents {
+        top: 33%;
+    }
+
     #Bcontents #text1 .p1 {
         font-weight: 400;
         font-size: 32px;
@@ -521,12 +526,20 @@ button::after {
         display: none;
     }
 
+    #sponsors {
+        top: 60%;
+        /* left: 7%; */
+        margin: auto;
+
+        font-size: 1.2em;
+    }
+
     .spon-img {
         text-align: center;
-        width: 70%;
+        width: 85%;
     }
     .spon-img img {
-        width: 45%;
+        max-width: 45%;
         vertical-align: middle;
     }
 
