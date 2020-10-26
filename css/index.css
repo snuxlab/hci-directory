@@ -543,4 +543,8 @@ button::after {
         vertical-align: middle;
     }
 
+    #teaminterface {
+        max-width: 80%;
+    }
+
 }
