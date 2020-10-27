@@ -104,6 +104,11 @@
     border-top: 1px solid #e5e5e5
 }
 
+.modal-footer p {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
 .modal-footer .btn + .btn {
     margin-bottom: 0;
     margin-left: 5px
