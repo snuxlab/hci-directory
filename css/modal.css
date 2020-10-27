@@ -107,6 +107,7 @@
 .modal-footer p {
     text-align: right;
     margin-bottom: 10px;
+    font-size: 12px;
 }
 @media screen and (max-width: 780px) {
     .modal-footer p {
