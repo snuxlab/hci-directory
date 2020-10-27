@@ -108,6 +108,11 @@
     text-align: right;
     margin-bottom: 10px;
 }
+@media screen and (max-width: 780px) {
+    .modal-footer p {
+        font-size: 10px;
+    }
+}
 
 .modal-footer .btn + .btn {
     margin-bottom: 0;
