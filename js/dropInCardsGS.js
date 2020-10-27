@@ -339,14 +339,16 @@ function I(index) {
     $('#detail_Email').html(labdata[index-1].Email);
     $('#detail_Keyword_1').html(labdata[index-1].Keyword_1);
     $('#detail_Paper').html(labdata[index-1].Paper);
+    $('#detail_URL').html(labdata[index - 1].URL);
     $('#detail_Keyword_2').html(labdata[index-1].Keyword_2);
+
     $('#detail_Interview_URL').html(labdata[index-1].Interview_URL);
 
     if (labdata[index-1].URL !== "연구실 사이트 없음") {
         $('#popBtn1').html('연구실 홈페이지 바로가기');
         $('#popBtn1').css('backgroundColor', '#0083c7');
         $('#popBtn1').attr('disabled', false);
-        $('#popBtn1').attr('onclick', 'window.open("' + labdata[index-1].Interview_URL + '")');
+        $('#popBtn1').attr('onclick', 'window.open("' + labdata[index-1].URL + '")');
 
 
     } else {
