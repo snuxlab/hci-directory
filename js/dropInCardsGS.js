@@ -287,7 +287,7 @@ function charSearchList() {
     //연구실명으로 검색
     else if (filter_kind == 2 && CharLab !== '') {
         CountLabs = 0;
-        for (var c = 1; c <= listLength; c++) {
+        for (var c = 0; c < listLength; c++) {
             // var checkNumC = eval('list' + c);
             var checkA = labdata[c].LabTitle.toLowerCase();
             var checkB = CharLab.toLowerCase();
