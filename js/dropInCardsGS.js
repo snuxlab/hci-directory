@@ -224,24 +224,24 @@ function charSearchList() {
             case 'gist':
             case '광주과학기술원':
             case '지스트':
-                CharUniv = 'GIST (광주과학기술원)';
+                CharUniv = 'GIST(광주과학기술원)';
                 break;
             case '한국과학기술원':
             case 'KAIST':
             case 'kaist':
             case '카이스트':
-                CharUniv = 'KAIST (한국과학기술원)';
+                CharUniv = 'KAIST(한국과학기술원)';
                 break;
             case '서울미디어대학원대학교':
             case 'SMIT':
             case 'smit':
-                CharUniv = 'SMIT (서울미디어대학원대학교)';
+                CharUniv = 'SMIT(서울미디어대학원대학교)';
                 break;
             case '울산과학기술원':
             case 'UNIST':
             case 'unist':
             case '유니스트':
-                CharUniv = 'UNIST (울산과학기술원)';
+                CharUniv = 'UNIST(울산과학기술원)';
                 break;
             default:
                 break;
