@@ -19,7 +19,7 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UulHTD6xEk8K
 // 변경url : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit?usp=sharing
 let labdata;
 let listLength;
-const Tabletop = require('tabletop');
+// const Tabletop = require('tabletop');
 
 function init() {
     Tabletop.init({
