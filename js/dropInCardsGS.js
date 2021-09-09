@@ -14,10 +14,12 @@ console.log(listLength); -> 이거 여기서 안불러와지더라고요 ㅠㅠ 
 
 */
 
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit#gid=0';
-
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit?usp=sharing';
+// 기존 : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit#gid=0
+// 변경url : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit?usp=sharing
 let labdata;
 let listLength;
+const Tabletop = require('tabletop');
 
 function init() {
     Tabletop.init({
