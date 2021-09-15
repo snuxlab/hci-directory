@@ -9,32 +9,48 @@ console.log(listLength); -> 이거 여기서 안불러와지더라고요 ㅠㅠ 
 지금 문제는 이 파일에서 data 와 listLength를 못 읽어옵니다.
 10/2 >> 이 부분 해결 완료!!!!
 
-
 하지만 문제는 속도가 살짝 느리다는것... 이 부분은 추가로 고민해봐야할듯.
-
 */
 
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit?usp=sharing';
+/*
+9월 tabletop 작동안됨 -> papa parse로 변경하니 작동됨 (09.15), 명균
+*/
+
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRb-Mr1V5FMUBKTE4Nb_u6IXsQOQ7n9NTBHF_MEpVPPV5ZZXEsoxgczGfrwu1Xr5IrUG54c7oVbEH3F/pub?gid=0&single=true&output=csv';
 // 기존 : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit#gid=0
-// 변경url : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit?usp=sharing
 let labdata;
 let listLength;
-// const Tabletop = require('tabletop');
 
+///----------------------------------초기 버전-------
+// function init() {
+//     Tabletop.init({
+//         key: publicSpreadsheetUrl,
+//         callback: showInfo,
+//         simpleSheet: true
+//     })
+// }
+// window.addEventListener('DOMContentLoaded', init)
+
+// function showInfo(data, tabletop) {
+//     // alert('Successfully processed!')
+//     // console.log(data);
+//     labdata = data;
+// }
+//----------------------------------------------------
+
+//-------------------papa.parse변경 09.15 --------------
 function init() {
-    Tabletop.init({
-        key: publicSpreadsheetUrl,
-        callback: showInfo,
-        simpleSheet: true
-    })
+    Papa.parse(publicSpreadsheetUrl, {
+    download: true,
+    header: true,
+    complete: function(results) {
+      labdata = results.data
+      console.log(labdata);
+    }
+  })
 }
 window.addEventListener('DOMContentLoaded', init)
 
-function showInfo(data, tabletop) {
-    // alert('Successfully processed!')
-    // console.log(data);
-    labdata = data;
-}
 
 // setTimeout(function () {
 //     listLength = labdata.length;
