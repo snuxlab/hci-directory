@@ -45,7 +45,7 @@ function init() {
     header: true,
     complete: function(results) {
       labdata = results.data
-      console.log(labdata);
+    //   console.log(labdata);
     }
   })
 }
