@@ -376,7 +376,7 @@ function I(index) {
     }
 
     if (labdata[index-1].Scholar_URL !== "해외논문 인덱스 없음") {
-        $('#popBtn2').html('해외논문 인덱스');
+        $('#popBtn2').html('해외논문 인덱스 바로가기');
         $('#popBtn2').css('backgroundColor', '#0083c7');
         $('#popBtn2').attr('disabled', false);
         $('#popBtn2').attr('onclick', 'window.open("' + labdata[index - 1].Scholar_URL + '")');
