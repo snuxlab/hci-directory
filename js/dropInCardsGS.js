@@ -99,7 +99,8 @@ function tagSearchList() {
 
     //검색된 연구실 갯수를 세기 위한 변수 초기화
     CountLabs = 0;
-
+    
+    //GPT Code
     for (var j = 0; j < listLength; j++) {
         var keyword = labdata[j].Keyword_1;
         var addToTagList = false; // 기본값: 추가하지 않음
