@@ -900,7 +900,7 @@
                                         <a class="navbar-item" id="tag_23">음성/비전/뇌인터페이스</a>
                                         <a class="navbar-item" id="tag_24">그래픽스/시각화</a>
                                         <a class="navbar-item" id="tag_25">감성디자인/컴퓨팅</a>
-                                        <a class="navbar-item" id="tag_25">오디오</a>
+                                        <a class="navbar-item" id="tag_26">오디오</a>
                                     </div>
     
                                 </div>
@@ -1047,13 +1047,13 @@
         <script>
             var tag_i;
             var tag_title;
-            var isAct_tag = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            var isAct_tag = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             var tag_text = ['비즈니스/정책/창업', '문화컨텐츠/디지털유산', '인지공학/심리', '소셜/SNS', '협업/CSCW', 'Robot/HRI', '자동차/모빌리티', '교육/어린이/노인', '헬스케어/의료', '디자인방법론/문화', '모바일/웹', 'IoT/센서/정보가전', '공간/환경', '게임/영상/모션', '미디어아트', '인터랙션디자인', '사용자경험/서비스디자인', '지속가능/접근성/UD', '가상/증강현실/메타버스', 'NUI/Haptics', '유비쿼터스/웨어러블', '빅데이터/인공지능/HAI', '클라우드/엣지컴퓨팅', '음성/비전/뇌인터페이스', '그래픽스/시각화', '감성디자인/컴퓨팅', '오디오'];
 
             var limit = 0;
 
             function countTags() {
-                limit = isAct_tag[0] + isAct_tag[1] + isAct_tag[2] + isAct_tag[3] + isAct_tag[4] + isAct_tag[5] + isAct_tag[6] + isAct_tag[7] + isAct_tag[8] + isAct_tag[9] + isAct_tag[10] + isAct_tag[11] + isAct_tag[12] + isAct_tag[13] + isAct_tag[14] + isAct_tag[15] + isAct_tag[16] + isAct_tag[17] + isAct_tag[18] + isAct_tag[19] + isAct_tag[20] + isAct_tag[21] + isAct_tag[22] + isAct_tag[23] + isAct_tag[24] + isAct_tag[25];
+                limit = isAct_tag[0] + isAct_tag[1] + isAct_tag[2] + isAct_tag[3] + isAct_tag[4] + isAct_tag[5] + isAct_tag[6] + isAct_tag[7] + isAct_tag[8] + isAct_tag[9] + isAct_tag[10] + isAct_tag[11] + isAct_tag[12] + isAct_tag[13] + isAct_tag[14] + isAct_tag[15] + isAct_tag[16] + isAct_tag[17] + isAct_tag[18] + isAct_tag[19] + isAct_tag[20] + isAct_tag[21] + isAct_tag[22] + isAct_tag[23] + isAct_tag[24] + isAct_tag[25] + isAct_tag[26];
             }
 
 
@@ -1316,6 +1316,16 @@
                         tag_btn_onoff(25, $(this).text());
                     } else if (limit == 5 && isAct_tag[25] == 1) {
                         tag_btn_offOnly(25, $(this).text());
+                    } else {
+                        alert('관심 분야는 최대 5개까지 선택할 수 있습니다.');
+                    }
+                });
+                $('#tag_26').click(function () {
+                    countTags();
+                    if (limit < 5) {
+                        tag_btn_onoff(26, $(this).text());
+                    } else if (limit == 5 && isAct_tag[26] == 1) {
+                        tag_btn_offOnly(26, $(this).text());
                     } else {
                         alert('관심 분야는 최대 5개까지 선택할 수 있습니다.');
                     }
