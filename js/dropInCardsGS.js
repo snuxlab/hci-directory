@@ -361,7 +361,7 @@ function I(index) {
 
 
   // detail_Keyword_b~e가 "."일 때 부모 div를 숨기기
-  const keywordIds = ["detㄴail_Keyword_b", "detail_Keyword_c", "detail_Keyword_d", "detail_Keyword_e"];
+  const keywordIds = ["det_ail_Keyword_b", "detail_Keyword_c", "detail_Keyword_d", "detail_Keyword_e"];
   keywordIds.forEach(id => {
       const element = document.getElementById(id);
       if (element && element.innerHTML.trim() === ".") {
