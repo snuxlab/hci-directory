@@ -323,6 +323,7 @@ function I(index) {
   if (labdata[index-1].URL !== "연구실 사이트 없음") {
     $('#popBtn3 .button-text').html('연구실 홈페이지');
     $('#popBtn3').css('backgroundColor', '#F5F6F7');
+    $('#popBtn3 .button-text').css('color', '#3C3C3C');
     $('#popBtn3').attr('disabled', false);
     $('#popBtn3 .material-symbols-outlined').show();
     $('#popBtn3').attr('onclick', 'window.open("' + labdata[index-1].URL + '")');
@@ -330,7 +331,7 @@ function I(index) {
   } else {
     $('#popBtn3 .button-text').html('연구실 홈페이지 없음');
     $('#popBtn3').css('backgroundColor', '#F5F6F7');
-    $('#popBtn3').css('Color', '#A1A1A1');
+    $('#popBtn3 .button-text').css('color', '#A1A1A1');
     $('#popBtn3').attr('disabled', true);
     $('#popBtn3 .material-symbols-outlined').hide();
     $('#popBtn3').removeAttr('onclick'); // 클릭 이벤트 제거
