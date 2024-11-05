@@ -1,44 +1,11 @@
-/* 
-구글시트 연동 버전  **********
-created: 2020.09.29
-author: minjoon
-*/
-
-/*
-console.log(listLength); -> 이거 여기서 안불러와지더라고요 ㅠㅠ data도 마찬가지.
-지금 문제는 이 파일에서 data 와 listLength를 못 읽어옵니다.
-10/2 >> 이 부분 해결 완료!!!!
-
-하지만 문제는 속도가 살짝 느리다는것... 이 부분은 추가로 고민해봐야할듯.
-*/
-
-/*
-9월 tabletop 작동안됨 -> papa parse로 변경하니 작동됨 (09.15), 명균
-*/
+// 기존 코드는 Archive 폴더에 저장
+// 2024.11.05 장현수 업데이트
 
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRb-Mr1V5FMUBKTE4Nb_u6IXsQOQ7n9NTBHF_MEpVPPV5ZZXEsoxgczGfrwu1Xr5IrUG54c7oVbEH3F/pub?gid=0&single=true&output=csv';
 // 기존 : https://docs.google.com/spreadsheets/d/1UulHTD6xEk8KOra6X6kss8JQ7IgqV8wbAZTyhJGf6uU/edit#gid=0
 let labdata;
 let listLength;
 
-///----------------------------------초기 버전-------
-// function init() {
-//     Tabletop.init({
-//         key: publicSpreadsheetUrl,
-//         callback: showInfo,
-//         simpleSheet: true
-//     })
-// }
-// window.addEventListener('DOMContentLoaded', init)
-
-// function showInfo(data, tabletop) {
-//     // alert('Successfully processed!')
-//     // console.log(data);
-//     labdata = data;
-// }
-//----------------------------------------------------
-
-//-------------------papa.parse변경 09.15 --------------
 function init() {
     Papa.parse(publicSpreadsheetUrl, {
     download: true,
@@ -51,28 +18,12 @@ function init() {
 }
 window.addEventListener('DOMContentLoaded', init)
 
-
-// setTimeout(function () {
-//     listLength = labdata.length;
-//     // console.log(labdata);
-//     // console.log(listLength);
-// }, 2200);
-
-
 var Stags = ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']; // 사용자가 선택한 태그의 명칭을 저장하는 변수
 var CharUniv = ''; // 사용자가 검색한 대학교명을 저장하는 변수
 var CharProf = ''; // 사용자가 검색한 교수명을 저장하는 변수
 var CharLab = ''; // 사용자가 검색한 연구실명을 저장하는 변수
 var CountLabs = 0; // 검색된 연구실의 갯수를 저장하는 변수
 var excepUniv = ''; // 예외처리된 대학교명을 저장하는 변수
-
-
-
-//연구실 목록 동적 구성
-/*경우의 수 3가지
-1. 태그로 검색한 경우
-2. 검색어로 검색한 경우
-3. 검색하지 않은 경우*/
 
 
 /*1. 태그로 검색한 경우*/
@@ -122,36 +73,11 @@ function tagSearchList() {
     
         // 조건에 맞는 연구실만 추가
         if (addToTagList) {
-            tagList += '<a onclick="I(' + labdata[j].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[j].LabTitle + '</div><div class="card_prof">' + labdata[j].Prof + ' 교수&ensp;|&ensp;' + labdata[j].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[j].Keyword_1 + '</div><br></div></div></article></a>';
+            tagList += '<a onclick="I(' + labdata[j].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[j].LabTitle + '</div> <div class="card_prof">' + labdata[j].Prof + ' 교수&ensp;</div><div class="card_univ">' + labdata[j].Univ + ' ' + labdata[j].Major + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" vie|wBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[j].Keyword_1 + '</div><br></div></div></article></a>';
             CountLabs++;
         }
+        
     }
-    
-    // // 연구실 디렉토리를 확인하며 Keyword에 tag를 포함하는 객체 불러옴
-    // for (var j = 0; j < listLength; j++) {
-    //     // var checkNumJ = eval('list' + j);
-    //     var keyword = labdata[j].Keyword_1;
-    //     // console.log(keyword);
-    //     // console.log(labdata[j].Prof);
-    //     // console.log(typeof(keyword));
-    //     // console.log(typeof(labdata[j].Prof));
-
-    //     if (keyword.indexOf(Stags[0]) >= 0 && keyword.indexOf(Stags[1]) >= 0 && keyword.indexOf(Stags[2]) >= 0 && keyword.indexOf(Stags[3]) >= 0 && keyword.indexOf(Stags[4]) >= 0 && keyword.indexOf(Stags[5]) >= 0 && keyword.indexOf(Stags[6]) >= 0 && keyword.indexOf(Stags[7]) >= 0 && keyword.indexOf(Stags[8]) >= 0 && keyword.indexOf(Stags[9]) >= 0 && keyword.indexOf(Stags[10]) >= 0 && keyword.indexOf(Stags[11]) >= 0 && keyword.indexOf(Stags[12]) >= 0 && keyword.indexOf(Stags[13]) >= 0 && keyword.indexOf(Stags[14]) >= 0 && keyword.indexOf(Stags[15]) >= 0 && keyword.indexOf(Stags[16]) >= 0 && keyword.indexOf(Stags[17]) >= 0 && keyword.indexOf(Stags[18]) >= 0 && keyword.indexOf(Stags[19]) >= 0 && keyword.indexOf(Stags[20]) >= 0 && keyword.indexOf(Stags[21]) >= 0 && keyword.indexOf(Stags[22]) >= 0 && keyword.indexOf(Stags[23]) >= 0 && keyword.indexOf(Stags[24]) >= 0 && keyword.indexOf(Stags[25]) >= 0) {
-    //         tagList += '<a onclick="I(' + labdata[j].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[j].LabTitle + '</div><div class="card_prof">' + labdata[j].Prof + ' 교수&ensp;|&ensp;' + labdata[j].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[j].Keyword_1 + '</div><br></div></div></article></a>';
-    //         CountLabs++;
-    //     }
-    // }
-
-    // // 아무것도 검색하지 않았을 때 모든 연구실 등장
-    // if (Stags[0] === '#' && Stags[1] === '#' && Stags[2] === '#' && Stags[3] === '#' && Stags[4] === '#' && Stags[5] === '#' && Stags[6] === '#' && Stags[7] === '#' && Stags[8] === '#' && Stags[9] === '#' && Stags[10] === '#' && Stags[11] === '#' && Stags[12] === '#' && Stags[13] === '#' && Stags[14] === '#' && Stags[15] === '#' && Stags[16] === '#' && Stags[17] === '#' && Stags[18] === '#' && Stags[19] === '#' && Stags[20] === '#' && Stags[21] === '#' && Stags[22] === '#' && Stags[23] === '#' && Stags[24] === '#' && Stags[25] === '#' && CharUniv === '' && CharProf === '' && CharLab === '') {
-    //     CountLabs = 0;
-    //     for (var i = 0; i < listLength; i++) {
-    //         // var checkNum = eval('list' + i);
-
-    //         tagList += '<a onclick="I(' + labdata[i].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[i].LabTitle + '</div><div class="card_prof">' + labdata[i].Prof + ' 교수&ensp;|&ensp;' + labdata[i].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[i].Keyword_1 + '</div><br></div></div></article></a>';
-    //         CountLabs++;
-    //     }
-    // }
 
     //tagList변수에 저장한 html코드를 뿌려서 동적목록구성
     $('#DropInListArea').html(tagList);
@@ -163,6 +89,7 @@ function tagSearchList() {
         $('#howManyLabs').html('검색 결과 &#40;' + CountLabs + '&#41;');
     }
 }
+
 /*1. 태그로 검색한 경우 끝*/
 
 
@@ -296,7 +223,7 @@ function charSearchList() {
             // var checkNumA = eval('list' + a);
 
             if (CharUniv == labdata[a].Univ) {
-                tagList += '<a onclick="I(' + labdata[a].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[a].LabTitle + '</div><div class="card_prof">' + labdata[a].Prof + ' 교수&ensp;|&ensp;' + labdata[a].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[a].Keyword_1 + '</div><br></div></div></article></a>';
+                tagList += '<a onclick="I(' + labdata[a].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[a].LabTitle + '</div><div class="card_prof">' + labdata[a].Prof + ' 교수&ensp;</div><div class="card_univ">' + labdata[a].Univ + ' ' + labdata[a].Major + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[a].Keyword_1 + '</div><br></div></div></article></a>';
                 CountLabs++;
             }
         }
@@ -316,7 +243,7 @@ function charSearchList() {
             // var checkNumB = eval('list' + b);
 
             if (CharProf == labdata[b].Prof) {
-                tagList += '<a onclick="I(' + labdata[b].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[b].LabTitle + '</div><div class="card_prof">' + labdata[b].Prof + ' 교수&ensp;|&ensp;' + labdata[b].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[b].Keyword_1 + '</div><br></div></div></article></a>';
+                tagList += '<a onclick="I(' + labdata[b].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[b].LabTitle + '</div><div class="card_prof">' + labdata[b].Prof + ' 교수&ensp;</div><div class="card_univ">' + labdata[b].Univ + ' ' + labdata[b].Major + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[b].Keyword_1 + '</div><br></div></div></article></a>';
                 CountLabs++;
             }
         }
@@ -338,7 +265,7 @@ function charSearchList() {
             var checkB = CharLab.toLowerCase();
 
             if (checkA.indexOf(checkB) !== -1) {
-                tagList += '<a onclick="I(' + labdata[c].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[c].LabTitle + '</div><div class="card_prof">' + labdata[c].Prof + ' 교수&ensp;|&ensp;' + labdata[c].Univ + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[c].Keyword_1 + '</div><br></div></div></article></a>';
+                tagList += '<a onclick="I(' + labdata[c].LabKey + ');"><article class="card"><div class="card__info"><div class="card_top"><div class="card_LabName">' + labdata[c].LabTitle + '</div><div class="card_prof">' + labdata[c].Prof + ' 교수&ensp;</div><div class="card_univ">' + labdata[c].Univ + ' ' + labdata[c].Major + '</div></div><div class="card_bottom"><div class="card_keyword"><svg width="18" height="18" viewBox="0 0 15 15" class="bi bi-tag" fill="#6a6a6a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 2v4.586l7 7L13.586 9l-7-7H2zM1 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2z"/><path fill-rule="evenodd" d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>연구실 키워드</div><div class="card_tag">' + labdata[c].Keyword_1 + '</div><br></div></div></article></a>';
                 CountLabs++;
             }
         }
@@ -370,47 +297,77 @@ function charSearchList() {
 /*2. 검색어로 검색한 경우 끝*/
 
 
+
+
 //연구실 카드를 클릭 했을 때 팝업에 연구실 정보를 뿌리는 함수
 function I(index) {
+  $("#myModal").modal('show');
 
-    $("#myModal").modal('show');
+  // 기존 코드 유지
+  $('#detail_LabTitle').html(labdata[index-1].LabTitleFull);
+  $('#detail_Univ').html(labdata[index-1].Univ);
+  $('#detail_Prof').html(labdata[index-1].Prof);
+  $('#detail_Major').html(labdata[index-1].Major);
+  $('#detail_Email').html(labdata[index-1].Email);
+  $('#detail_Keyword_1').html(labdata[index-1].Keyword_1);
+  $('#detail_Paper').html(labdata[index-1].Paper);
+  $('#detail_URL').html(labdata[index - 1].URL);
+  $('#detail_Keyword_a').html(labdata[index-1].Keyword_a);
+  $('#detail_Keyword_b').html(labdata[index-1].Keyword_b);
+  $('#detail_Keyword_c').html(labdata[index-1].Keyword_c);
+  $('#detail_Keyword_d').html(labdata[index-1].Keyword_d);
+  $('#detail_Keyword_e').html(labdata[index-1].Keyword_e);
+  $('#detail_Scholar_URL').html(labdata[index-1].Scholar_URL);
 
-    // google sheets ver.
-    // var checkNum = eval('list' + index);
-    $('#detail_LabTitle').html(labdata[index-1].LabTitleFull);
-    $('#detail_Univ').html(labdata[index-1].Univ);
-    $('#detail_Prof').html(labdata[index-1].Prof);
-    $('#detail_Major').html(labdata[index-1].Major);
-    $('#detail_Email').html(labdata[index-1].Email);
-    $('#detail_Keyword_1').html(labdata[index-1].Keyword_1);
-    $('#detail_Paper').html(labdata[index-1].Paper);
-    $('#detail_URL').html(labdata[index - 1].URL);
-    $('#detail_Keyword_2').html(labdata[index-1].Keyword_2);
+  // 연구실 URL 버튼 설정
+  if (labdata[index-1].URL !== "연구실 사이트 없음") {
+    $('#popBtn3 .button-text').html('연구실 홈페이지');
+    $('#popBtn3').css('backgroundColor', '#F5F6F7');
+    $('#popBtn3').attr('disabled', false);
+    $('#popBtn3 .material-symbols-outlined').show();
+    $('#popBtn3').attr('onclick', 'window.open("' + labdata[index-1].URL + '")');
+    
+  } else {
+    $('#popBtn3 .button-text').html('연구실 홈페이지 없음');
+    $('#popBtn3').css('backgroundColor', '#F5F6F7');
+    $('#popBtn3').css('Color', '#A1A1A1');
+    $('#popBtn3').attr('disabled', true);
+    $('#popBtn3 .material-symbols-outlined').hide();
+    $('#popBtn3').removeAttr('onclick'); // 클릭 이벤트 제거
 
-    $('#detail_Scholar_URL').html(labdata[index-1].Scholar_URL);
-
-    if (labdata[index-1].URL !== "연구실 사이트 없음") {
-        $('#popBtn1').html('연구실 홈페이지 바로가기');
-        $('#popBtn1').css('backgroundColor', '#0083c7');
-        $('#popBtn1').attr('disabled', false);
-        $('#popBtn1').attr('onclick', 'window.open("' + labdata[index-1].URL + '")');
+  }
 
 
-    } else {
-        $('#popBtn1').html('연구실 홈페이지 없음');
-        $('#popBtn1').css('backgroundColor', 'lightgray');
-        $('#popBtn1').attr('disabled', true);
-    }
+  // 해외 논문 URL 버튼 설정
+  if (labdata[index - 1].Scholar_URL !== "해외논문 인덱스 없음") {
+    $('#popBtn4 .button-text4').html('해외논문 더보기');
+    $('#popBtn4').css('backgroundColor', 'transparent');
+    $('#popBtn4').css('color', '#616161'); // 활성화된 텍스트 색상
+    $('#popBtn4').attr('disabled', false);
+    $('#popBtn4 .material-symbols-outlined').show(); // 아이콘을 활성화
+    $('#popBtn4 .button4').css('border-bottom', '1px solid #616161'); // border 활성화
+    $('#popBtn4').attr('onclick', 'window.open("' + labdata[index - 1].Scholar_URL + '")');
 
-    if (labdata[index-1].Scholar_URL !== "해외논문 인덱스 없음") {
-        $('#popBtn2').html('해외논문 인덱스 바로가기');
-        $('#popBtn2').css('backgroundColor', '#0083c7');
-        $('#popBtn2').attr('disabled', false);
-        $('#popBtn2').attr('onclick', 'window.open("' + labdata[index - 1].Scholar_URL + '")');
-    } else {
-        $('#popBtn2').html('해외논문 인덱스 없음');
-        $('#popBtn2').css('backgroundColor', 'lightgray');
-        $('#popBtn2').attr('disabled', true);
-    }
+  } else {
+    $('#popBtn4 .button-text4').html('해외논문 인덱스 없음');
+    $('#popBtn4').css('backgroundColor', 'transparent'); // 비활성화 배경색
+    $('#popBtn4').css('color', '#A1A1A1'); // 비활성화 텍스트 색상
+    $('#popBtn4').attr('disabled', true);
+    $('#popBtn4 .material-symbols-outlined').hide(); // 아이콘을 숨김
+    $('#popBtn4 .button4').css('border-bottom', 'none'); // border 제거
+    $('#popBtn4').removeAttr('onclick'); // 클릭 이벤트 제거
+    
+  }
 
+
+  // detail_Keyword_b~e가 "."일 때 부모 div를 숨기기
+  const keywordIds = ["detㄴail_Keyword_b", "detail_Keyword_c", "detail_Keyword_d", "detail_Keyword_e"];
+  keywordIds.forEach(id => {
+      const element = document.getElementById(id);
+      if (element && element.innerHTML.trim() === ".") {
+          element.closest('.keyword-box').style.display = "none"; // 부모 요소 숨기기
+      } else {
+          element.closest('.keyword-box').style.display = ""; // "."이 아닐 경우 표시
+      }
+  });
 }

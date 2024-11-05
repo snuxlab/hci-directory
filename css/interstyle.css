@@ -95,6 +95,14 @@ a svg:hover {
 
 }
 
+.txt_h0 {
+    display: inline;
+    font-size: 24px;
+    font-weight: 700;
+    color: #3c3c3c;
+    line-height: 29px;
+}
+
 .txt_h1 {
     display: inline;
     font-size: 140%;

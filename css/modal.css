@@ -15,7 +15,8 @@
     display: none;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-    outline: 0
+    outline: 0;
+    border: 1px solid #CCC;
 }
 
 .modal.fade .modal-dialog {
@@ -80,8 +81,7 @@
 }
 
 .modal-header {
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5
+    margin: 24px 32px 12px 32px;
 }
 
 .modal-header .close {
@@ -95,12 +95,12 @@
 
 .modal-body {
     position: relative;
-    padding: 15px;
+    padding: 0px 32px 16px 32px;
     word-break: keep-all;
 }
 
 .modal-footer {
-    padding: 15px;
+    padding: 16px 24px 16px 24px;
     text-align: right;
     border-top: 1px solid #e5e5e5
 }
@@ -166,7 +166,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.42857143;
+    line-height: normal;
     text-align: left;
     text-align: start;
     text-decoration: none;
@@ -751,9 +751,25 @@
 .row:after {
     clear: both
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close');
+
+
+.material-symbols-outlined {
+    vertical-align: middle;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+  
+
+
 .close {
     float: right;
-    font-size: 21px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1;
     color: #000;
@@ -913,6 +929,28 @@ input[type=search]::-webkit-search-decoration {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 0px solid transparent;
+    border-radius: 5px
+    /* display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -928,8 +966,10 @@ input[type=search]::-webkit-search-decoration {
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
-    border-radius: 4px
+    border-radius: 4px */
 }
+
+
 
 .btn.active.focus,
 .btn.active:focus,
@@ -974,7 +1014,8 @@ fieldset[disabled] a.btn {
 .btn-default {
     color: #333;
     background-color: #fff;
-    border-color: #ccc
+    border-color: #ccc;
+    border: 1px solid #Ccc;
 }
 
 .btn-default.focus,
@@ -1033,7 +1074,12 @@ fieldset[disabled] .btn-default:hover {
 
 .btn-default .badge {
     color: #fff;
-    background-color: #333
+    /* background-color: #333 */
+}
+
+.btn-primary4 {
+    color: #fff;
+    background-color: #337ab7;
 }
 
 .btn-primary {
