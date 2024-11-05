@@ -361,13 +361,19 @@ function I(index) {
 
 
   // detail_Keyword_b~e가 "."일 때 부모 div를 숨기기
-  const keywordIds = ["det_ail_Keyword_b", "detail_Keyword_c", "detail_Keyword_d", "detail_Keyword_e"];
-  keywordIds.forEach(id => {
-      const element = document.getElementById(id);
-      if (element && element.innerHTML.trim() === ".") {
-          element.closest('.keyword-box').style.display = "none"; // 부모 요소 숨기기
-      } else {
-          element.closest('.keyword-box').style.display = ""; // "."이 아닐 경우 표시
-      }
-  });
+const keywordIds = ["detail_Keyword_b", "detail_Keyword_c", "detail_Keyword_d", "detail_Keyword_e"];
+keywordIds.forEach(id => {
+    const element = document.getElementById(id);
+    if (element && element.textContent.trim() === ".") {
+        const parentDiv = element.closest('.keyword-box');
+        if (parentDiv) {
+            parentDiv.style.display = "none"; // 부모 요소 숨기기
+        }
+    } else if (element) {
+        const parentDiv = element.closest('.keyword-box');
+        if (parentDiv) {
+            parentDiv.style.display = ""; // "."이 아닐 경우 표시
+        }
+    }
+});
 }
